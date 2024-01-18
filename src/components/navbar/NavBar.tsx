@@ -1,26 +1,68 @@
-import { FC } from "react";
-import { NavLink } from "./NavLink";
+"use client";
 
-export const Navbar: FC = () => {
-  const isNarrowScreen = window.matchMedia("(max-width: 500px)").matches;
+import React, { Dispatch, FC, SetStateAction } from "react";
+import { NavLink } from "./NavLink";
+import { SelectedPage } from "@/shared/types";
+import useWindowSize from "../../hooks/useWindowSize";
+
+const screenSizes = {
+  mobile: 400,
+  tablet: 800,
+  desktop: 1000,
+  largeDesktop: 1600,
+};
+
+interface NavBarProps {
+  setSelectedPage: Dispatch<SetStateAction<string>>;
+  selectedPage: string;
+}
+
+export const Navbar: FC<NavBarProps> = ({ setSelectedPage, selectedPage }) => {
+  const { width } = useWindowSize();
+  console.log("useWindowSize", width);
 
   return (
     <nav className="flex items-center h-[100px] md:h-auto lg:py-[40px]">
-      <div className=" min-w-fit pl-8">
-        <img
-          alt="logo"
-          src="../../assets/shared/logo.svg"
-          className="w-[48px] h-[48px]"
+      <div className="min-w-fit pl-8">
+        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48">
+          <g fill="none" fill-rule="evenodd">
+            <circle cx="24" cy="24" r="24" fill="#FFF" />
+            <path
+              fill="#0B0D17"
+              d="M24 0c0 16-8 24-24 24 15.718.114 23.718 8.114 24 24 0-16 8-24 24-24-16 0-24-8-24-24z"
+            />
+          </g>
+        </svg>
+      </div>
+      <div>
+        <hr className="absolute opacity-[0.3] left-[200px] w-1/3 z-10 md:hidden lg:block" />
+      </div>
+
+      <ul className="relative flex items-center justify-center h-[96px] px-[50px] gap-x-[50px] ml-auto brightness-110 backdrop-blur-xl text-white">
+        <NavLink
+          isActive={selectedPage === SelectedPage.Home}
+          link={"/Home"}
+          number={"00"}
+          text={"Home"}
         />
-      </div>
-      <div className="relative w-2/3">
-        <hr className="absolute opacity-[0.3] right-[-40px] w-full z-10" />
-      </div>
-      <ul className="flex items-center justify-center h-[96px] px-[50px] gap-x-[50px] ml-auto backdrop-blur-xl text-white">
-        <NavLink number={"00"} text={"Home"} />
-        <NavLink number={"01"} text={"Destinations"} />
-        <NavLink number={"02"} text={"Crew"} />
-        <NavLink number={"03"} text={"Technology"} />
+        <NavLink
+          isActive={selectedPage === SelectedPage.Destinations}
+          link={"/Destinations"}
+          number={"01"}
+          text={"Destinations"}
+        />
+        <NavLink
+          isActive={selectedPage === SelectedPage.Crew}
+          link={"/Crew"}
+          number={"02"}
+          text={"Crew"}
+        />
+        <NavLink
+          isActive={selectedPage === SelectedPage.Technology}
+          link={"/Technology"}
+          number={"03"}
+          text={"Technology"}
+        />
       </ul>
     </nav>
   );

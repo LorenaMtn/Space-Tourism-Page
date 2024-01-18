@@ -1,8 +1,10 @@
+"use client";
+
 import Link from "next/link";
 import { Bellefair } from "next/font/google";
-
 import { Navbar } from "../components/navbar/NavBar";
 import styles from "./page.module.css";
+import { useState } from "react";
 
 const bellefair = Bellefair({
   weight: "400",
@@ -10,12 +12,14 @@ const bellefair = Bellefair({
 });
 
 export default function Home() {
+  const [selectedPage, setSelectedPage] = useState<string>("Home");
+  console.log("selectedPage", selectedPage);
   return (
     <main
-      className={`${styles.container} ${bellefair.className} flex min-h-screen flex-col py-12 px-9`}
+      className={`${styles.container} ${bellefair.className} flex justify-between min-h-screen flex-col py-12`}
     >
-      <Navbar />
-      <div className="flex space-between min-h-fit mt-[108px] gap-24">
+      <Navbar setSelectedPage={setSelectedPage} selectedPage={selectedPage} />
+      <div className="flex justify-between p-[90px]">
         <div className="flex flex-col basis-1/2 gap-6 align-left text-pink-100 text-lg max-w-15">
           <p className="text-3xl tracking-0.295 uppercase">
             So, you want to travel to
@@ -30,10 +34,13 @@ export default function Home() {
         </div>
 
         <button
-          className="self-end w-[274px] h-[274px] rounded-full bg-white text-3xl tracking-0.125"
-          // onClick={() => console.log("too add destinations")}
+          className="self-end relative w-[274px] h-[274px] rounded-full bg-white text-3xl tracking-0.125 transition-transform transform hover:scale-105 lg:mt-16 group"
+          onClick={() => console.log("to add destinations")}
         >
           Explore
+          <div className="hidden group-hover:flex items-center justify-center w-[350px] h-[350px] absolute top-[-38px] left-[-38px] bg-white/10 rounded-full">
+            {/* Additional content or styles for hover state */}
+          </div>
         </button>
       </div>
     </main>

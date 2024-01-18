@@ -4,20 +4,23 @@ import { FC } from "react";
 interface NavLinkProps {
   number: string;
   text: string;
+  isActive: boolean;
+  link: string;
 }
 
-export const NavLink: FC<NavLinkProps> = ({ number, text }) => {
+export const NavLink: FC<NavLinkProps> = ({ number, text, isActive, link }) => {
+  const isActiveState = isActive ? "border-b-white" : "";
   return (
-    <li>
-      <Link
-        href={""}
-        className="flex items-end h-full w-auto border-transparent border-2 hover:border-b-white/55"
-      >
-        <p className="text-[20px] tracking-[0.16875] ">
+    <Link
+      href={link}
+      className={`flex h-full w-auto border-transparent border-2 hover:border-b-white/55 ${isActiveState}`}
+    >
+      <li className="flex m-auto">
+        <p className="text-[20px] tracking-[0.16875] uppercase">
           <span className="font-bold pr-[12px]">{number}</span>
           {text}
         </p>
-      </Link>
-    </li>
+      </li>
+    </Link>
   );
 };
