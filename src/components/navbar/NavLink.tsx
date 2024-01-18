@@ -1,5 +1,5 @@
-import Link from "next/link";
 import { FC } from "react";
+import Link from "next/link";
 
 interface NavLinkProps {
   number: string;
@@ -13,11 +13,13 @@ export const NavLink: FC<NavLinkProps> = ({ number, text, isActive, link }) => {
   return (
     <Link
       href={link}
-      className={`flex h-full w-auto border-transparent border-2 hover:border-b-white/55 ${isActiveState}`}
+      className={`flex w-auto border-transparent border-2 hover:border-b-white/55 ${isActiveState}`}
     >
       <li className="flex m-auto">
-        <p className="text-[20px] tracking-[0.16875] uppercase">
-          <span className="font-bold pr-[12px]">{number}</span>
+        <p className="text-[16px] tracking-[0.16875] uppercase">
+          <span className="font-bold pr-[12px] lg:inline md:hidden">
+            {number}
+          </span>
           {text}
         </p>
       </li>
