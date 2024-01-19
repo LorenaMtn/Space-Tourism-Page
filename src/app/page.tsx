@@ -1,15 +1,11 @@
 "use client";
 import { useState } from "react";
-import { Bellefair } from "next/font/google";
 
 import Home from "./home";
 import styles from "./page.module.css";
 import { Navbar } from "../components/navbar/NavBar";
+import { bellefair } from "@/shared/constants";
 
-const bellefair = Bellefair({
-  weight: "400",
-  subsets: ["latin"],
-});
 
 const Page = ({ children }: any) => {
   const [selectedPage, setSelectedPage] = useState<string>("home");

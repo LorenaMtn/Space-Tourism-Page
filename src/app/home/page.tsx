@@ -1,19 +1,21 @@
 "use client";
 
 import { useState } from "react";
-import { Barlow_Condensed } from "next/font/google";
 
-const barlow = Barlow_Condensed({
-  weight: "400",
-  subsets: ["latin"],
-});
+import styles from "./page.module.css";
+import { Navbar } from "@/components/navbar/NavBar";
+import { barlow, bellefair } from "@/shared/constants";
 
 export default function Home() {
   const [selectedPage, setSelectedPage] = useState<string>("home");
   console.log("selectedPage", selectedPage);
 
   return (
-    <main>
+    <main
+      className={`${styles.container} ${bellefair.className} flex justify-between min-h-screen flex-col ld:py-12 sm:py-0`}
+    >
+      <Navbar setSelectedPage={setSelectedPage} selectedPage={selectedPage} />
+
       <div className="flex justify-between lg:flex-row sm:flex-col lg:p-[90px] sm:p-[20px]">
         <div className="flex flex-col lg:basis-1/2 gap-6 lg:place-items-start sm:items-center text-pink-100 text-lg sm:max-w-[450px] sm:mx-auto lg:mx-[0px]">
           <p className={`${barlow} text-[28px] tracking-0.295 uppercase`}>

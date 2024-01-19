@@ -20,11 +20,12 @@ const config: Config = {
     extend: {
       colors:{
         'pink-100': '#D0D6F9',
+        'gray-100': '#0000',
       },
       backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic':
-          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+        "desktop": 'url(/assets/home/background-home-desktop.jpg)',
+        "tablet": 'url(/assets/home/background-home-tablet.jpg)',
+        "mobile": 'url(/assets/home/background-home-mobile.jpg)'
       },
     },
   plugins: [],

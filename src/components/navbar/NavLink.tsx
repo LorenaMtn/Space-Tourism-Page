@@ -17,7 +17,7 @@ export const NavLink: FC<NavLinkProps> = ({ number, text, isActive, link }) => {
     >
       <li className="flex m-auto">
         <p className="text-[16px] tracking-[0.16875] uppercase">
-          <span className="font-bold pr-[12px] lg:inline md:hidden">
+          <span className="font-bold pr-[12px] lg:inline md:hidden sm:inline ">
             {number}
           </span>
           {text}
