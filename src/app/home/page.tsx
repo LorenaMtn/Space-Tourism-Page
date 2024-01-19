@@ -16,7 +16,7 @@ export default function Home() {
     >
       <Navbar setSelectedPage={setSelectedPage} selectedPage={selectedPage} />
 
-      <div className="flex justify-between lg:flex-row sm:flex-col lg:p-[90px] sm:p-[20px]">
+      <div className="flex justify-between lg:flex-row sm:flex-col lg:p-[90px] sm:px-[20px] sm:py-[46px]">
         <div className="flex flex-col lg:basis-1/2 gap-6 lg:place-items-start sm:items-center text-pink-100 text-lg sm:max-w-[450px] sm:mx-auto lg:mx-[0px]">
           <p className={`${barlow} text-[28px] tracking-0.295 uppercase`}>
             So, you want to travel to
