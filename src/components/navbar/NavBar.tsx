@@ -44,25 +44,25 @@ export const Navbar: FC<NavBarProps> = ({ setSelectedPage, selectedPage }) => {
         <ul className="relative flex items-center justify-center h-[96px] px-[50px] gap-x-[50px] ml-auto lg:brightness-110 sm:brightness-150 backdrop-blur-xl text-white">
           <NavLink
             isActive={selectedPage === SelectedPage.Home}
-            link={"/Home"}
+            link={"/home"}
             number={"00"}
             text={"Home"}
           />
           <NavLink
             isActive={selectedPage === SelectedPage.Destinations}
-            link={"/Destinations"}
+            link={"/destinations"}
             number={"01"}
             text={"Destinations"}
           />
           <NavLink
             isActive={selectedPage === SelectedPage.Crew}
-            link={"/Crew"}
+            link={"/crew"}
             number={"02"}
             text={"Crew"}
           />
           <NavLink
             isActive={selectedPage === SelectedPage.Technology}
-            link={"/Technology"}
+            link={"/technology"}
             number={"03"}
             text={"Technology"}
           />

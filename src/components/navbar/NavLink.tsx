@@ -13,7 +13,7 @@ export const NavLink: FC<NavLinkProps> = ({ number, text, isActive, link }) => {
   return (
     <Link
       href={link}
-      className={`flex w-auto border-transparent border-2 hover:border-b-white/55 ${isActiveState}`}
+      className={`flex h-full w-auto border-transparent border-2 hover:border-b-white/55 ${isActiveState}`}
     >
       <li className="flex m-auto">
         <p className="text-[16px] tracking-[0.16875] uppercase">

@@ -10,11 +10,11 @@ const config: Config = {
   ],
   theme: {
     screens: {
-        'sm': '280px', // Small screens
-        'md': '530px', // Medium screens
-        'lg': '1024px', // Large screens
-        'xl': '1280px', // Extra-large screens
-        '2xl': '1536px', // Custom breakpoint
+        'sm': '280px', 
+        'md': '530px', 
+        'lg': '1024px', 
+        'xl': '1280px', 
+        '2xl': '1536px', 
       },
     },
     extend: {

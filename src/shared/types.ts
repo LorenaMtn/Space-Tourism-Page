@@ -5,9 +5,9 @@ export interface ScreenSize {
   }
   
   export enum SelectedPage {
-    Home = 'Home', 
-    Destinations = 'Destinations', 
-    Crew = 'Crew',
-    Technology = 'Technology'  
+    Home = 'home', 
+    Destinations = 'destinations', 
+    Crew = 'crew',
+    Technology = 'technology'  
   }
   
